@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опрос</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1050/1050915.png" type="image/png">
+
+    <style>
+        input:required:valid {
+            border-color: green;
+        }
+
+        input:invalid {
+            border-color: rgb(228, 46, 182);
+        }
+    </style>
+</head>
+
+<body>
+    <h2><i>Опрос для обладателей котиков</i></h2>
+    <form>
+        <fieldset>
+            <legend><b>Контактные данные </b></legend>
+            <p>Кличка питомца <input type="text" name="catstName" required />*</p>
+            <p>Имя владельца <input type="text" name="ownerName" required />*</p>
+            <p>Номер телефона <input type="tel" name="phone" /></p>
+            <p>E-mail <input type="email" name="email" /></p>
+        </fieldset>
+
+        <p>Порода питомца</p>
+        <select name="Breed" required>
+            <option value="">Выберите породу</option>
+            <option value="CatBreed1">Мейн-кун</option>
+            <option value="CatBreed2">Британская короткошерстная</option>
+            <option value="CatBreed3">Сиамская кошка</option>
+            <option value="CatBreed4">Персидская кошка</option>
+            <option value="CatBreed5">Сфинкс</option>
+        </select>
+
+        <p> Чем питается? </p>
+        <input type="checkbox" name="space" value="1" />
+        Сухой корм<br />
+        <input type="checkbox" name="space" value="2" />
+        Влажный корм <br />
+        <input type="checkbox" name="space" value="3" />
+        Натуральный корм <br />
+
+        <p> Укажите пол: </p>
+        <input type="radio" name="s" value="m" required /> Самец<br />
+        <input type="radio" name="s" value="f" /> Самка
+
+        <p>Приложите фото питомца:</p>
+        <input type="file" name="myFile" />
+
+        <p>Оставьте свой комментарий здесь!</p>
+        <textarea rows="5" cols="50"> </textarea>
+
+        <p>Нажмите сохранить, чтобы отправить данные опроса.</p>
+        <button type="submit">Сохранить</button>
+    </form>
+</body>
+
+</html>
