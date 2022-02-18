@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .title {
+            margin-block-end: 2px;
+        }
+
+        #button {
+            background-color: blue;
+            border: solid 1px black;
+            border-radius: 5px;
+            width: 40vw;
+        }
+
+        img {
+            margin-top: 5px;
+        }
+
+        .errors {
+            color: rgb(185, 12, 12);
+            font-size: large;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Привет, здесь можно оставить информацию о себе)</h3>
+    <div id="container">
+
+    </div>
+
+    <form>
+        <div>
+            <h4 class="title">Имя *</h4>
+            <input type="text" name="author" id="author" value="">
+        </div>
+        <div>
+            <h4 class="title">Добавить фото:</h4>
+            <input type="file" id="userFile" />
+        </div>
+        <div>
+            <img id="userPhoto" width="20%" />
+        </div>
+        <div>
+            <h4 class=" title">Оставить комментарий:</h4>
+            <textarea id="newComments" style="width:40vw; height:20vh;"></textarea>
+        </div>
+        <div>
+            <input name="button" type="button" id="button" value="Отправить" onclick="checkMessage();" />
+        </div>
+        <div id="errorMessage" class="errors"></div>
+    </form>
+
+    <script src="add_comments_new.js">
+    </script>
+</body>
+
+</html>
