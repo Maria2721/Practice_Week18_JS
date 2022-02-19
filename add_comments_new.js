@@ -1,21 +1,16 @@
+let commentsArray = [];
 document.addEventListener("DOMContentLoaded", function (event) {
+    commentsArray = localStorage.getItem('usercomment') ? JSON.parse(localStorage.getItem('usercomment')) : [];
+
     let username = localStorage.getItem('username');
     if (username != null) {
         document.getElementById("author").value = username;
     }
 
-    // здесь можно отобразить комментарий в поле textarea
-
-    /* if (localStorage.getItem('usercomment') != null) {
-        let usercomment = localStorage.getItem('usercomment');
-        let lastjscomment = JSON.parse(usercomment);
-        document.getElementById("newComments").value = lastjscomment;
-    } */
-
-    if (username != null && localStorage.getItem('usercomment') != null) {
-        let usercomment = localStorage.getItem('usercomment');
-        let lastjscomment = JSON.parse(usercomment);
-        document.getElementById("container").innerHTML += `<span>${username}: </span><span>${lastjscomment}</span><br>`;
+    if (username != null && commentsArray != null) {
+        commentsArray.forEach(item => {
+            document.getElementById("container").innerHTML += `<span>${username}: </span><span>${item}</span><br>`;
+        });
     }
 
     if (localStorage.getItem('userimage') != null) {
@@ -32,7 +27,6 @@ function checkMessage() {
     let author = document.getElementById("author").value;
     let comment = document.getElementById("newComments").value;
     let spamComment = checkSpam(comment);
-    let jscomment = JSON.stringify(spamComment);
     let photo = document.getElementById("userFile").files[0];
 
     if (photo != undefined) {
@@ -42,14 +36,16 @@ function checkMessage() {
 
     if (author != '' && spamComment != '') {
         sendMessage(author, spamComment);
+        commentsArray.push(spamComment);
+        console.log(commentsArray);
         localStorage.setItem('username', author);
-        localStorage.setItem('usercomment', jscomment);
+        localStorage.setItem('usercomment', JSON.stringify(commentsArray));
+        document.getElementById("newComments").value = "";
     } else if (author == '') {
         document.getElementById("errorMessage").innerHTML += 'Поле Имя не заполнено! <br>';
     } else if (spamComment == '') {
         document.getElementById("errorMessage").innerHTML += 'Поле Комментарий не заполнено! <br>';
     }
-    document.getElementById("newComments").value = "";
 }
 
 function checkSpam(comment) {
@@ -59,4 +55,10 @@ function checkSpam(comment) {
         comments[i] = spam;
     }
     return comments.join(' ');
+}
+
+function deleteMessage() {
+    localStorage.removeItem('usercomment');
+    document.getElementById("container").innerHTML = "";
+    commentsArray = [];
 }

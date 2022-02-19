@@ -12,11 +12,19 @@
             margin-block-end: 2px;
         }
 
-        #button {
+        #button,
+        #buttonDelete {
             background-color: blue;
             border: solid 1px black;
             border-radius: 5px;
             width: 40vw;
+            font-size: medium;
+            font-weight: bold;
+        }
+
+        #buttonDelete {
+            margin-top: 10px;
+            background-color: rgb(204, 36, 140);
         }
 
         img {
@@ -36,7 +44,9 @@
     <div id="container">
 
     </div>
-
+    <div>
+        <input name="button" type="button" id="buttonDelete" value="Удалить комментарии" onclick="deleteMessage();" />
+    </div>
     <form>
         <div>
             <h4 class="title">Имя *</h4>
