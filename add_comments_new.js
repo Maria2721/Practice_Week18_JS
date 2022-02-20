@@ -37,7 +37,6 @@ function checkMessage() {
     if (author != '' && spamComment != '') {
         sendMessage(author, spamComment);
         commentsArray.push(spamComment);
-        console.log(commentsArray);
         localStorage.setItem('username', author);
         localStorage.setItem('usercomment', JSON.stringify(commentsArray));
         document.getElementById("newComments").value = "";

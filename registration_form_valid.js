@@ -33,7 +33,7 @@ function checkAll() {
         checkValidity(input);
     }
 
-    if (date == "") {
+    if (!date) {
         errors.push("Дата рождения не заполнена");
     } else {
         let userDate = new Date(date);
@@ -43,7 +43,7 @@ function checkAll() {
         }
     }
 
-    if (sex == null) {
+    if (!sex) {
         errors.push("Пол не заполнен.");
     }
 
