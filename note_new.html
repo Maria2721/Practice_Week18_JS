@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .addBtn,
+        .clearBtn {
+            background-color: rgb(102, 102, 240);
+            border: solid 1px black;
+            border-radius: 5px;
+            font-size: medium;
+            font-weight: bold;
+        }
+
+        .clearBtn {
+            background-color: rgb(209, 61, 152);
+            margin-left: 4px;
+        }
+
+        h2 {
+            margin-block-end: 0;
+        }
+
+        .deleteBtn {
+            background-color: rgb(255, 55, 155);
+            border: solid 1px black;
+            border-radius: 5px;
+            font-size: small;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My list of notes!</h1>
+    <div>
+        <input type="text" placeholder="New note" class="note">
+        <input type="button" value="Submit" class="addBtn">
+        <input type="button" value="Clear List" class="clearBtn">
+    </div>
+
+    <ul class="list"></ul>
+
+    <script src="notes_new.js"></script>
+</body>
+
+</html>
