@@ -40,7 +40,7 @@ function deleteNote(e) {
     const parent = e.target.parentNode;
     parent.remove();
 
-    // достаем значения li из списка ul и перезаписать их в массив itemsArray
+    // достаем значения li из списка ul и перезаписываем их в массив itemsArray
     let text = list.textContent.trim();
     let newArray = text.split(' ');
     let newArrayClean = newArray.filter((e) => e != 'Delete' && e != 'note'); // убираем текст от кнопок!
