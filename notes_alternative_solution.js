@@ -3,7 +3,7 @@ const addBtn = document.querySelector(".addBtn");
 const clearBtn = document.querySelector('.clearBtn');
 const noteInput = document.querySelector('.note');
 let itemsArray = localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : [];
-let notesCount = localStorage.getItem('notesCount') ? localStorage.getItem('notesCount') : 0;
+let notesCount = localStorage.getItem('notesCount') ? JSON.parse(localStorage.getItem('notesCount')) : [];
 
 itemsArray.forEach(item => {
     liMaker(item);
@@ -17,8 +17,9 @@ function addStuff() {
     localStorage.setItem('notesCount', notesCount);
 
     // создаем объект Note, где id будет порядковым номером записи, а введенный текст будет добавлен в список на экране
-    notesCount++;
     let note = new Note(notesCount, noteText);
+    notesCount += 1;
+    localStorage.setItem('notesCount', notesCount)
 
     // itemsArray у нас теперь массив из объектов класса Note, а не из строк
     itemsArray.push(note);
@@ -61,7 +62,7 @@ function clearList() {
     localStorage.removeItem('notes');
     itemsArray = [];
     localStorage.removeItem('notesCount');
-    notesCount = 0;
+    // notesCount = 1;
 }
 
 addBtn.addEventListener("click", addStuff);
